@@ -1,13 +1,18 @@
 <script>
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 export default {
   name: "ErrorAlert",
   props: ["message"],
+  components: {
+    Alert,
+    AlertDescription,
+    AlertTitle,
+  },
 };
 </script>
 
 <template>
   <Alert variant="destructive">
-    <AlertCircle class="w-4 h-4" />
     <AlertTitle>Error</AlertTitle>
     <AlertDescription>
       {{ message }}

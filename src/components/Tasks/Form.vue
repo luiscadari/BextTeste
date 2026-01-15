@@ -53,6 +53,7 @@ export default {
         title: this.title,
         description: this.description,
         priority: this.priority,
+        status: "Pendente",
       };
       try {
         const response = await axios.post(
@@ -60,7 +61,7 @@ export default {
           newTask
         );
         this.$emit("task-added");
-        setTimeout(() => this.$router.push({ path: "/tasks" }), 1000);
+        setTimeout(() => this.$router.push({ path: "/user/tasks" }), 1000);
       } catch (e) {
         console.log(e);
         this.$emit("error", "Erro ao adicionar a tarefa. Tente novamente.");
