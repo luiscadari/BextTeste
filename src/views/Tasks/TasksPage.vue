@@ -18,6 +18,8 @@ export default {
       tasks: [],
       isLoading: true,
       errors: null,
+      modalIsOpen: false,
+      selectedTask: null,
     };
   },
   async created() {
@@ -55,6 +57,10 @@ export default {
           this.errors = errors;
         }
       }
+    },
+    openModal(task) {
+      this.modalIsOpen = true;
+      this.selectedTask = task;
     },
   },
 };
