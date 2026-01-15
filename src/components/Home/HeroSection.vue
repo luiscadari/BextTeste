@@ -9,7 +9,7 @@
     </p>
     <div class="mt-6">
       <button
-        v-on:click="() => router.push('/login')"
+        v-on:click="() => this.$router.push({ path: '/login' })"
         class="bg-blue-500 text-white px-4 py-2 rounded"
       >
         Começar
@@ -19,12 +19,9 @@
 </template>
 
 <script>
-import { useRouter } from "vue-router";
 export default {
   data() {
-    return {
-      router: useRouter(),
-    };
+    return {};
   },
 };
 </script>

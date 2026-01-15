@@ -1,13 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { computed } from "vue";
 import HomePage from "./views/Home/HomePage.vue";
 import LoginPage from "./views/Login/LoginPage.vue";
-import TasksView from "./views/Tasks/TasksView.vue";
+import TasksPage from "./views/Tasks/TasksPage.vue";
+import CreateTaskPage from "./views/Tasks/CreateTaskPage.vue";
 import { authStore } from "./stores/auth.store";
 
 const routes = [
   { path: "/", component: HomePage },
   { path: "/login", component: LoginPage },
-  { path: "/user/tasks", component: TasksView },
+  { path: "/user/tasks", component: TasksPage },
+  { path: "/user/tasks/create", component: CreateTaskPage },
 ];
 
 const router = createRouter({
@@ -15,10 +18,14 @@ const router = createRouter({
   routes: routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (to.path != "/login" && to.path != "/") {
-    const isAuthenticated = authStore().isAuthenticated;
-    if (!isAuthenticated) next("/login");
+    const authStoreInstance = authStore();
+    console.log("authStoreInstance:", authStoreInstance);
+    const isAuthenticated = computed(() => authStoreInstance.isAuthenticated);
+    console.log("isAuthenticated:", isAuthenticated.value);
+    if (!isAuthenticated.value) next({ path: "/login" });
+    else next();
   } else next();
 });
 

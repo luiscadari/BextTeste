@@ -8,7 +8,7 @@ export default {
     password: "",
   }),
   methods: {
-    loginHandler() {
+    async loginHandler() {
       if (!this.validEmail || !this.validPassword) {
         this.$emit(
           "error",
@@ -20,7 +20,8 @@ export default {
       const loginSuccess = store.login(this.email, this.password);
       if (loginSuccess) {
         // Redirect to dashboard or home page
-        this.$router.push("/user/tasks");
+
+        this.$router.push({ path: "/user/tasks" });
       } else {
         this.$emit("error", "E-mail ou senha inválidos.");
       }

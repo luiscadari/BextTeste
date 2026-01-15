@@ -3,11 +3,13 @@ import axios from "axios";
 
 import Table from "@/components/Tasks/Table.vue";
 import Spinner from "@/components/ui/spinner/Spinner.vue";
+import Button from "@/components/ui/button/Button.vue";
 export default {
-  name: "TasksView",
+  name: "TasksPage",
   components: {
     Table,
     Spinner,
+    Button,
   },
   data() {
     return {
@@ -35,7 +37,15 @@ export default {
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
+  <div class="w-screen h-screen container mx-auto">
+    <div class="mb-12 mt-24">
+      <p class="text-4xl font-bold">Suas tarefas 📑</p>
+      <Button
+        @click="() => this.$router.push({ path: '/user/tasks/create' })"
+        class="mt-12"
+        >Adicionar Tarefa</Button
+      >
+    </div>
     <Table v-if="tasks.length > 0 && !isLoading" :tasks="tasks"></Table>
     <div v-if="isLoading" class="mx-auto">
       <Spinner />

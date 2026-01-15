@@ -19,9 +19,12 @@ export const authStore = defineStore("auth", {
         email === this.mockedCredentials.email &&
         password === this.mockedCredentials.password
       ) {
+        console.log("Login successful");
         this.isAuthenticated = true;
         return true;
       }
+      console.log("Invalid credentials");
+      console.log(email, password);
       this.isAuthenticated = false;
       return false;
     },
