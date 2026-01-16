@@ -56,7 +56,10 @@ export default {
       />
     </div>
     <div class="mb-4">
-      <label class="block text-foreground text-sm font-bold mb-2" for="password">
+      <label
+        class="block text-foreground text-sm font-bold mb-2"
+        for="password"
+      >
         Password
       </label>
       <input

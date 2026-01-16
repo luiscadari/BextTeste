@@ -7,7 +7,16 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { RouterLink } from "vue-router";
+import { authStore } from "@/stores/auth.store";
+import { computed } from "vue";
+import { RouterLink, useRouter } from "vue-router";
+const auth = authStore();
+const router = useRouter();
+const isAuthenticated = computed(() => auth.isAuthenticated);
+const logout = () => {
+  auth.logout();
+  router.push("/");
+};
 </script>
 
 <template>
@@ -59,10 +68,18 @@ import { RouterLink } from "vue-router";
           >
           <NavigationMenuContent>
             <NavigationMenuLink
-              ><a href="https://github.com">Github</a></NavigationMenuLink
+              ><a href="https://github.com/luiscadari/BextTeste" target="_blank"
+                >Github</a
+              ></NavigationMenuLink
             >
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <NavigationMenuLink
+          class="fixed right-2 top-2 text-red-500"
+          v-if="isAuthenticated"
+          @click="logout"
+          >Sair</NavigationMenuLink
+        >
       </NavigationMenuList>
     </NavigationMenu>
   </div>

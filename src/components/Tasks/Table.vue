@@ -203,7 +203,9 @@ export default {
         <TableCell class="text-right">
           <Dialog @update:open="(open) => !open && resetEditionMode()">
             <DialogTrigger class="text-center border-0 w-12 h-9 cursor-pointer">
-              <SquareArrowOutUpLeftIcon class="m-auto w-3 h-3 text-foreground" />
+              <SquareArrowOutUpLeftIcon
+                class="m-auto w-3 h-3 text-foreground"
+              />
             </DialogTrigger>
             <DialogContent class="max-h-[400px]">
               <DialogHeader>
@@ -294,11 +296,8 @@ export default {
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel
-                  >Cancelar</AlertDialogCancel
-                >
-                <AlertDialogAction
-                  @click="handleDelete(task)"
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogAction @click="handleDelete(task)"
                   >Continuar</AlertDialogAction
                 >
               </AlertDialogFooter>

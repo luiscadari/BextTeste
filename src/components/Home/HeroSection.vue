@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="max-w-screen max-h-screen flex justify-center items-center flex-col"
-  >
+  <div class="m-auto">
     <h1 class="text-4xl font-bold mb-4">Gerenciador de Tarefas 📑</h1>
     <p class="font-medium mb-2">
       Organize suas tarefas de forma simples e aumente sua produtividade!

@@ -45,6 +45,9 @@ export default {
       if (!this.priority || this.priority.trim() === "") {
         errors.push("A prioridade da tarefa é obrigatória.");
       }
+      if (!this.category || this.category.trim() === "") {
+        errors.push("A categoria da tarefa é obrigatória.");
+      }
       if (errors.length > 0) {
         this.$emit("error", errors);
         this.isLoading = false;
@@ -55,6 +58,7 @@ export default {
         description: this.description,
         priority: this.priority,
         status: "Pendente",
+        category: this.category,
       };
       try {
         const response = await axios.post(
