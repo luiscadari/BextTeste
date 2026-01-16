@@ -1,3 +1,5 @@
 {
-  "tasks": []
+  "tasks": [],
+  "categories": ["Trabalho", "Pessoal", "Estudos"],
+  "priorities": ["Baixa", "Média", "Alta"]
 }
