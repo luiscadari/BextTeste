@@ -4,6 +4,12 @@
 
 Aplicação criada como solução de desafio técnico front-end pleno na Bext, demonstrando habilidades em desenvolvimento frontend moderno com as melhores práticas do ecossistema Vue.
 
+## 🤝 Feedback
+
+- Gostei muito de ter realizado este desafio, pois acredito que consegui comprovar minha experiência e expertíase em desenvolvimento web.
+- Acredito que os objetivos propostos pelo desafio exercitaram conceitos e técnicas reais de desenvolvimento para além de um mero "leet-code".
+- No mais, espero que gostem de minha solução assim como gostei de realizar este desafio ☺️.
+
 ## ✨ Funcionalidades
 
 - 🔐 **Autenticação de Usuários** - Sistema de login com proteção de rotas
