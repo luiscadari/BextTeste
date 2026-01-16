@@ -32,6 +32,7 @@ export default {
       description: "",
       conclusionDate: "",
       priority: "",
+      category: "",
     };
   },
   methods: {
@@ -60,8 +61,7 @@ export default {
           "http://localhost:3000/tasks",
           newTask
         );
-        this.$emit("task-added");
-        setTimeout(() => this.$router.push({ path: "/user/tasks" }), 1000);
+        this.$router.push({ path: "/user/tasks" });
       } catch (e) {
         console.log(e);
         this.$emit("error", "Erro ao adicionar a tarefa. Tente novamente.");
@@ -76,11 +76,11 @@ export default {
 <template>
   <form
     @submit.prevent="handleSubmit"
-    class="w-lg h-3/4 rounded-3xl space-y-6 shadow-2xl"
+    class="m-auto max-w-screen max-h-screen rounded-3xl space-y-6 shadow-2xl"
   >
     <div>
       <p class="text-4xl font-bold pt-12 mb-12">Criar tarefa</p>
-      <label for="task-title" class="block text-lg font-medium text-gray-700"
+      <label for="task-title" class="block text-lg font-medium text-foreground"
         >Título da Tarefa</label
       >
       <div class="px-16 mt-1">
@@ -96,7 +96,7 @@ export default {
     </div>
 
     <div>
-      <label for="task-desc" class="block text-lg font-medium text-gray-700"
+      <label for="task-desc" class="block text-lg font-medium text-foreground"
         >Descrição da Tarefa</label
       >
       <div class="mt-1 px-16">
@@ -133,8 +133,37 @@ export default {
         </Select>
       </div>
     </div>
-    <div class="pt-6 pb-6">
-      <Button type="submit" :loading="isLoading"> Adicionar Tarefa </Button>
+    <div class="text-center justify-center items-center block">
+      <label class="text-lg" for="task-category"> Categoria </label>
+      <div class="justify-center mt-6 items-center flex">
+        <Select class="" v-model="category" :disabled="isLoading">
+          <SelectTrigger>
+            <SelectValue placeholder="Selecione a categoria" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Categoria</SelectLabel>
+              <SelectItem
+                v-for="item in ['Trabalho', 'Pessoal', 'Estudos']"
+                :value="item"
+                :key="item"
+              >
+                {{ item }}
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
+    <div class="block space-x-2 pt-6 pb-6">
+      <Button type="submit" :disabled="isLoading"> Adicionar Tarefa </Button>
+      <Button
+        type="button"
+        :disabled="isLoading"
+        @click="() => this.$router.push({ path: '/user/tasks' })"
+      >
+        Cancelar
+      </Button>
     </div>
   </form>
 </template>

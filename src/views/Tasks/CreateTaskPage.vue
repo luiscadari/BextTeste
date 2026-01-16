@@ -9,5 +9,5 @@ export default {
 </script>
 
 <template>
-  <TaskForm />
+  <TaskForm class="max-w-screen" />
 </template>

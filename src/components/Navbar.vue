@@ -15,7 +15,7 @@ import { RouterLink } from "vue-router";
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem class="">
-          <NavigationMenuTrigger class="text-white"
+          <NavigationMenuTrigger class="text-foreground"
             >Início</NavigationMenuTrigger
           >
           <NavigationMenuContent>
@@ -54,7 +54,7 @@ import { RouterLink } from "vue-router";
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem class="">
-          <NavigationMenuTrigger class="text-white"
+          <NavigationMenuTrigger class="text-foreground"
             >Sobre</NavigationMenuTrigger
           >
           <NavigationMenuContent>

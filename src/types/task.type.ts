@@ -7,4 +7,7 @@ type Task = {
   conclusionDate?: string;
 };
 
-export type { Task };
+type TaskCategory = "Trabalho" | "Pessoal" | "Estudos";
+type TaskPriority = "Baixa" | "Média" | "Alta";
+
+export type { Task, TaskCategory, TaskPriority };

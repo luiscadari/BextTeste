@@ -1,5 +1,6 @@
 <script>
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-vue-next";
 export default {
   name: "ErrorAlert",
   props: ["message"],
@@ -7,14 +8,16 @@ export default {
     Alert,
     AlertDescription,
     AlertTitle,
+    AlertCircle,
   },
 };
 </script>
 
 <template>
   <Alert variant="destructive">
-    <AlertTitle>Error</AlertTitle>
-    <AlertDescription>
+    <AlertCircle class="w-4 h-4" />
+    <AlertTitle class="text-left">Ops...</AlertTitle>
+    <AlertDescription class="text-left">
       {{ message }}
     </AlertDescription>
   </Alert>
