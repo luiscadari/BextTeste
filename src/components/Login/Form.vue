@@ -9,11 +9,15 @@ export default {
   }),
   methods: {
     async loginHandler() {
-      if (!this.validEmail || !this.validPassword) {
-        this.$emit(
-          "error",
-          "Por favor, preencha todos os campos corretamente."
-        );
+      const errors = [];
+      if (!this.validEmail) {
+        errors.push("E-mail inválido.");
+      }
+      if (!this.validPassword) {
+        errors.push("A senha deve ter no mínimo 6 caracteres.");
+      }
+      if (errors.length > 0) {
+        this.$emit("error", errors.join(" "));
         return;
       }
       const store = authStore();
@@ -29,10 +33,13 @@ export default {
   },
   computed: {
     validEmail() {
-      return this.email != "";
+      return (
+        this.email != "" &&
+        this.email.match(/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim)
+      );
     },
     validPassword() {
-      return this.password != "";
+      return this.password != "" && this.password.length > 5;
     },
   },
 };
